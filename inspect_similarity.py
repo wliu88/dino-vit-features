@@ -48,7 +48,7 @@ def show_similarity_interactive(image_path_a: str, image_path_b: str, load_size:
     num_patches_b, load_size_b = extractor.num_patches, extractor.load_size
 
     # plot
-    fig, axes = plt.subplots(1, 3)
+    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
     [axi.set_axis_off() for axi in axes.ravel()]
     visible_patches = []
     radius = patch_size // 2
@@ -120,6 +120,7 @@ def show_similarity_interactive(image_path_a: str, image_path_b: str, load_size:
         plt.draw()
         pts = np.asarray(plt.ginput(1, timeout=-1, mouse_stop=plt.MouseButton.RIGHT, mouse_pop=None))
 
+    fig.close()
 
 """ taken from https://stackoverflow.com/questions/15008758/parsing-boolean-values-with-argparse"""
 def str2bool(v):
